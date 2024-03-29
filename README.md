@@ -1,3 +1,5 @@
+<p align="center"> <img src="./screenshot.png"> </p>
+
 ## Quick Start
 clone the project
 ```
