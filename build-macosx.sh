@@ -4,11 +4,10 @@ set -xe
 voc=./voc/install/bin/voc
 voc_lib=./voc/install/lib/
 raylib=./raylib/src/libraylib.a
-files=(Window.Mod)
-
 
 compile_osx() {
-	$voc -cm $files
+	$voc -ce Raylib.Mod
+	$voc -cm Window.Mod
 	clang \
 		-fPIC \
 		-g \

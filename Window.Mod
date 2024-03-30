@@ -1,26 +1,23 @@
 MODULE Window;
-IMPORT SYSTEM;
+IMPORT SYSTEM, Raylib;
 
 CONST
   title = "Oberon";
 
-PROCEDURE -colorInit(R:CHAR;G:CHAR;B:CHAR;A:CHAR):LONGINT '(struct Color){ .r = R, .g = G, .b = B, .a = A }';
-PROCEDURE -inclARaylib() '#include "../raylib/src/raylib.h"';
-PROCEDURE -InitWindow(width:LONGINT; height:LONGINT; title:ARRAY OF CHAR) "InitWindow(width,height,title)";
-PROCEDURE -CloseWindow() "CloseWindow()";
-PROCEDURE -BeginDrawing() "BeginDrawing()";
-PROCEDURE -EndDrawing() "EndDrawing()";
-PROCEDURE -WindowShouldClose():BOOLEAN "(bool)WindowShouldClose()";
-PROCEDURE -ClearBackground(color:LONGINT) "ClearBackground(color)";
-
+VAR
+  COLORBG: Raylib.TColor;
 
 BEGIN
-  InitWindow(400, 400, title);
-  WHILE (WindowShouldClose() # TRUE) DO
-    BeginDrawing();
-      ClearBackground(colorInit(CHR(255),CHR(0),CHR(0),CHR(0)));
-    EndDrawing();
+  COLORBG.r := 0FFX;
+  COLORBG.g := 0X;
+  COLORBG.b := 0X;
+  COLORBG.a := 0X;
+  Raylib.InitWindow(400, 400, title);
+  WHILE (Raylib.WindowShouldClose() # TRUE) DO
+    Raylib.BeginDrawing();
+      Raylib.ClearBackground(COLORBG);
+    Raylib.EndDrawing();
   END;
 
-  CloseWindow();
+  Raylib.CloseWindow();
 END Window.

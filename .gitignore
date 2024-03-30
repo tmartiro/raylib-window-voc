@@ -1,6 +1,8 @@
+.tmp.*
 .DS_Store
 Window
 raylib
 voc
 *.c
 *.o
+*.sym
