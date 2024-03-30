@@ -1,18 +1,8 @@
 MODULE Window;
 IMPORT SYSTEM;
 
-TYPE
-  Color = RECORD
-    r: CHAR;
-    g: CHAR;
-    b: CHAR;
-    a: CHAR;
-  END;
-
-VAR
-  l: SYSTEM.ADDRESS;
-  title : ARRAY 10 OF CHAR;
-  C: Color;
+CONST
+  title = "Oberon";
 
 PROCEDURE -colorInit(R:CHAR;G:CHAR;B:CHAR;A:CHAR):LONGINT '(struct Color){ .r = R, .g = G, .b = B, .a = A }';
 PROCEDURE -inclARaylib() '#include "../raylib/src/raylib.h"';
@@ -25,13 +15,9 @@ PROCEDURE -ClearBackground(color:LONGINT) "ClearBackground(color)";
 
 
 BEGIN
-  title := "Oberon";
-  l := SYSTEM.ADR(title[0]);
-
   InitWindow(400, 400, title);
   WHILE (WindowShouldClose() # TRUE) DO
     BeginDrawing();
-
       ClearBackground(colorInit(CHR(255),CHR(0),CHR(0),CHR(0)));
     EndDrawing();
   END;
