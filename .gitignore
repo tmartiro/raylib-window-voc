@@ -5,4 +5,5 @@ raylib
 voc
 *.c
 *.o
+*.h
 *.sym
