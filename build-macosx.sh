@@ -22,6 +22,16 @@ run() {
 	LD_LIBRARY_PATH=${voc_lib} DYLD_LIBRARY_PATH=${voc_lib} ./Window
 }
 
+case $1 in
+	run)
+		run
+		;;
+	build)
+		compile_osx
+		;;
+	*)
+		compile_osx
+		run
+		;;
+esac
 
-compile_osx
-run
