@@ -1,5 +1,5 @@
 MODULE Window;
-IMPORT SYSTEM, Raylib;
+IMPORT Raylib;
 
 CONST
   title = "Oberon";
